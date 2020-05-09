@@ -16,6 +16,9 @@
       "dom"
     ],
     "paths": {
+      "@environments/*": [
+        "projects/app/src/environments/*",
+      ],
       "my-lib": [
         "dist/my-lib/my-lib",
         "dist/my-lib"

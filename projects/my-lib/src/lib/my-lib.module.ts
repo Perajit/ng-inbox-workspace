@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
+import { InboxComponent } from './inbox/inbox.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [InboxComponent],
   imports: [],
-  exports: []
+  exports: [InboxComponent]
 })
 export class MyLibModule { }
