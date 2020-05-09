@@ -3,6 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { InboxService } from './inbox.service';
 import mockMailList from '../../mock/mock-mail-list';
+import { Mail } from './mail.model';
 
 describe('InboxService', () => {
   let service: InboxService;
@@ -24,9 +25,9 @@ describe('InboxService', () => {
     const apiEndpoint = 'http://fake.endpoint';
 
     it('should fetch and return mail list from api', () => {
-      let returnedValue: any;
+      let returnedValue: Mail[];
 
-      service.fetchMailList(apiEndpoint).subscribe((value: any) => {
+      service.fetchMailList(apiEndpoint).subscribe((value: Mail[]) => {
         returnedValue = value;
       });
 
