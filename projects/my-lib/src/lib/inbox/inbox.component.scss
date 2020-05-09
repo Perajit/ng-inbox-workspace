@@ -1,0 +1,14 @@
+$title-bar-height: 3em;
+
+.inbox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inbox__list-scroller {
+  height: calc(100% - #{$title-bar-height});
+  overflow: auto;
+  flex: 1;
+}
+

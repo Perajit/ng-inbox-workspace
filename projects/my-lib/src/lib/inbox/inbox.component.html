@@ -1,1 +1,16 @@
-<p>inbox works!</p>
+<div class="inbox">
+  <header class="inbox__header">
+    <div class="inbox__title-bar">
+      <h2>Inbox</h2>
+    </div>
+  </header>
+  <div class="inbox__list-scroller">
+    <my-lib-inbox-list
+      #listHolder
+      [mailList]="mailList"
+      [placeholder]="listPlaceholder"
+    ></my-lib-inbox-list>
+  </div>
+</div>
+<div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+<div class="loading-message" *ngIf="isLoading">Loading...</div>
