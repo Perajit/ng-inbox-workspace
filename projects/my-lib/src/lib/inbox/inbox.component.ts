@@ -19,7 +19,6 @@ export class InboxComponent implements OnInit, OnDestroy {
   };
 
   mailList: Mail[];
-  errorMessage: string;
   private mailListStatus: ResponseStatus;
   private mailListSubscription: Subscription;
 
@@ -51,7 +50,6 @@ export class InboxComponent implements OnInit, OnDestroy {
         this.mailList = list;
       },
       (error: Error) => {
-        this.errorMessage = error.message;
         this.mailListStatus = 'ERROR';
       }
     );

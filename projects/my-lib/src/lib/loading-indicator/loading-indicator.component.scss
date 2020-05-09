@@ -1,0 +1,48 @@
+@import '../../styles/colors';
+
+$dot-di: 1em;
+$dot-space: 0.5em;
+$dot-color: $grey;
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay__dot {
+  width: $dot-di;
+  height: $dot-di;
+  border-radius: $dot-di;
+  background-color: $dot-color;
+  margin: $dot-space;
+  animation-name: loading;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+
+  &:nth-of-type(2) {
+    animation-delay: 0.5s;
+  }
+
+  &:nth-of-type(3) {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes loading {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+@mixin dot($size, $color) {
+  width: $size;
+  height: $size;
+  border-radius: $size;
+  background-color: $dot-color;
+}

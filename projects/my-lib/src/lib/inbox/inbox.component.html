@@ -10,7 +10,5 @@
       [mailList]="mailList"
       [placeholder]="listPlaceholder"
     ></my-lib-inbox-list>
+    <my-lib-loading-indicator *ngIf="isLoading">Loading...</my-lib-loading-indicator>
   </div>
-</div>
-<div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
-<div class="loading-message" *ngIf="isLoading">Loading...</div>
