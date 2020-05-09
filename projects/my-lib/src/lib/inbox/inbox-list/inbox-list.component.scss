@@ -1,0 +1,57 @@
+@import '../../../styles/colors';
+
+$column-padding-v: 0.6rem;
+$column-padding-h: 0.5rem;
+$column-padding: $column-padding-v $column-padding-h;
+$avatar-di: 2rem;
+$avatar-colors: #2196f3, #651fff, #009688, #9c27b0, #f50057;
+
+.list-item {
+  display: flex;
+  border-bottom: solid 1px $divider-color;
+
+  @for $i from 1 through length($avatar-colors) {
+    &:nth-of-type(5n+#{$i}) {
+      .list-item__avatar {
+        background-color: nth($avatar-colors, $i);
+      }
+    }
+  }
+}
+
+.list-item__avatar {
+  flex-shrink: 0;
+  width: $avatar-di;
+  height: $avatar-di;
+  border-radius: 2rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  margin: $column-padding;
+}
+
+.list-item__info {
+  padding: $column-padding;
+  width: calc(100% - #{$avatar-di} - 2*#{$column-padding-h});
+  box-sizing: border-box;
+}
+
+.list-item__name {
+  font-weight: 500;
+}
+
+.list-item__subj {
+  font-weight: 500;
+}
+
+.list-item__body {
+  color: $grey;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

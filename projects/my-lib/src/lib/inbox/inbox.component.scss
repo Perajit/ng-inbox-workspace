@@ -1,9 +1,30 @@
+@import '../../styles/colors';
+
 $title-bar-height: 3em;
+$close-filter-button-di: 36px;
+$close-filter-button-symbol-width: 18px;
 
 .inbox {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: $white;
+  font-family: Roboto;
+}
+
+.inbox__header {
+  padding-left: 3.5rem;
+  border-bottom: solid 1px $divider-color;
+}
+
+.inbox__title-bar {
+  height: $title-bar-height;
+  font-weight: 500;
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: inherit;
+  }
 }
 
 .inbox__list-scroller {

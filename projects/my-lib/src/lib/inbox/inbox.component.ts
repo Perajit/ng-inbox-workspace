@@ -6,7 +6,7 @@ import { InboxService } from '../inbox.service';
 @Component({
   selector: 'my-lib-inbox',
   templateUrl: './inbox.component.html',
-  styleUrls: ['./inbox.component.scss']
+  styleUrls: ['./inbox.component.scss', '../styles.scss']
 })
 export class InboxComponent implements OnInit, OnDestroy {
 

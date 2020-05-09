@@ -4,7 +4,7 @@ import { Mail } from '../../mail.model';
 @Component({
   selector: 'my-lib-inbox-list',
   templateUrl: './inbox-list.component.html',
-  styleUrls: ['./inbox-list.component.scss']
+  styleUrls: ['./inbox-list.component.scss', '../../styles.scss']
 })
 export class InboxListComponent implements OnInit {
 
