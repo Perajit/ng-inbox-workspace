@@ -65,7 +65,12 @@
             "aot": true,
             "assets": [
               "projects/app/src/favicon.ico",
-              "projects/app/src/assets"
+              "projects/app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/my-lib/assets/",
+                "output": "./assets"
+              }
             ],
             "styles": [
               "projects/app/src/styles.scss"
