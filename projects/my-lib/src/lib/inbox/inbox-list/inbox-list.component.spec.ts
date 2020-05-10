@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { InboxListComponent } from './inbox-list.component';
+import { MyLibModule } from '../../my-lib.module';
 import mockMailListResponse from 'projects/my-lib/mock/mock-mail-list-response';
 
 describe('InboxListComponent', () => {
@@ -12,9 +13,9 @@ describe('InboxListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [InboxListComponent]
-    })
-      .compileComponents();
+      declarations: [InboxListComponent],
+      imports: [MyLibModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

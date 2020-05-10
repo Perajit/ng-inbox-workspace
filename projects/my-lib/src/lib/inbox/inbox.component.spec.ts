@@ -28,8 +28,7 @@ describe('InboxComponent', () => {
           useFactory: mockInboxServiceFactory
         }
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

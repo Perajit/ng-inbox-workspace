@@ -8,13 +8,15 @@ import { InboxComponent } from './inbox/inbox.component';
 import { InboxListComponent } from './inbox/inbox-list/inbox-list.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 import { MailFilterPipe } from './mail-filter.pipe';
+import { DateDynamicPipe } from './date-dynamic.pipe';
 
 @NgModule({
   declarations: [
     InboxComponent,
     InboxListComponent,
     LoadingIndicatorComponent,
-    MailFilterPipe
+    MailFilterPipe,
+    DateDynamicPipe
   ],
   imports: [
     BrowserModule,

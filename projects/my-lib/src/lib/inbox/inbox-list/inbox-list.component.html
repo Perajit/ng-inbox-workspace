@@ -5,7 +5,10 @@
     </div>
     <div class="list-item__info">
       <div class="list-item__name">{{ item.from?.name }}</div>
-      <div class="list-item__subj">{{ item.subject }}</div>
+      <div class="list-item__subj-n-time">
+        <div class="list-item__subj text-ellipsis">{{ item.subject }}</div>
+        <div class="list-item__time">{{ item.time | dateDynamic }}</div>
+      </div>
       <div class="list-item__body">
         <div class="text-ellipsis">{{ item.body }}</div>
       </div>
