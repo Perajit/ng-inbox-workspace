@@ -5,12 +5,14 @@ import { of } from 'rxjs';
 import { InboxComponent } from './inbox.component';
 import { MyLibModule } from '../my-lib.module';
 import { InboxService } from '../inbox.service';
-import mockMailList from 'projects/my-lib/mock/mock-mail-list';
+import mockMailListResponse from 'projects/my-lib/mock/mock-mail-list-response';
 
 describe('InboxComponent', () => {
   let component: InboxComponent;
   let fixture: ComponentFixture<InboxComponent>;
   let inboxService: InboxService;
+
+  const mockMailList = mockMailListResponse.map((mailResponse) => ({ ...mailResponse, time: new Date(mailResponse.time) }));
 
   const mockInboxServiceFactory = () => ({
     fetchMailList: jasmine.createSpy().and.returnValue(of(mockMailList))

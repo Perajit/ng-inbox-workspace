@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { takeLast } from 'rxjs/operators';
+import { takeLast, map } from 'rxjs/operators';
 
-import { Mail } from './mail.model';
+import { Mail, MailResponse } from './mail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,13 @@ export class InboxService {
 
   fetchMailList(apiEndpoint: string): Observable<Mail[]> {
     return this.httpClient.get(apiEndpoint).pipe(
-      takeLast(1)
+      takeLast(1),
+      map((listResponse: MailResponse[]) => {
+        return listResponse.map((mailResponse: MailResponse) => ({
+          ...mailResponse,
+          time: new Date(mailResponse.time)
+        }))
+      })
     ) as Observable<Mail[]>;
   }
 

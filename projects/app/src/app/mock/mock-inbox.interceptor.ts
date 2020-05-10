@@ -9,8 +9,8 @@ import {
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
-import { Mail } from 'my-lib';
-import mockMailList from './mock-mail-list';
+import { MailResponse } from 'my-lib';
+import mockMailListResponse from './mock-mail-list-response';
 import { environment } from '@environments/environment';
 
 @Injectable()
@@ -29,8 +29,8 @@ export class MockInboxInterceptor implements HttpInterceptor {
     return next.handle(request);
   }
 
-  private interceptFetchMailListReq(): Observable<HttpEvent<Mail[]>> {
-    return of(new HttpResponse({ status: 200, body: mockMailList })).pipe(
+  private interceptFetchMailListReq(): Observable<HttpEvent<MailResponse[]>> {
+    return of(new HttpResponse({ status: 200, body: mockMailListResponse })).pipe(
       delay(1000)
     );
   }

@@ -1,7 +1,9 @@
 import { MailFilterPipe } from './mail-filter.pipe';
-import mockMailList from '../../mock/mock-mail-list';
+import mockMailListResponse from '../../mock/mock-mail-list-response';
 
 describe('MailFilterPipe', () => {
+  const mockMailList = mockMailListResponse.map((mailResponse) => ({ ...mailResponse, time: new Date(mailResponse.time) }));
+
   it('create an instance', () => {
     const pipe = new MailFilterPipe();
     expect(pipe).toBeTruthy();

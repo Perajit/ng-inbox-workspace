@@ -2,11 +2,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { InboxListComponent } from './inbox-list.component';
-import mockMailList from 'projects/my-lib/mock/mock-mail-list';
+import mockMailListResponse from 'projects/my-lib/mock/mock-mail-list-response';
 
 describe('InboxListComponent', () => {
   let component: InboxListComponent;
   let fixture: ComponentFixture<InboxListComponent>;
+
+  const mockMailList = mockMailListResponse.map((mailResponse) => ({ ...mailResponse, time: new Date(mailResponse.time) }));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

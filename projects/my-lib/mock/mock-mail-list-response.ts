@@ -1,4 +1,4 @@
-import { Mail } from '../src/lib/mail.model';
+import { MailResponse } from '../src/lib/mail.model';
 
 export default [
   {
@@ -6,6 +6,7 @@ export default [
       name: 'Now TV',
       email: 'nowtv@test.com'
     },
+    time: '2020-05-09T19:55:53.922Z',
     subject: 'Grab another Pass, you need to be watching this...',
     body: 'Oscar winners Sir Anthony Hopkins and Ed Harris join an impressive cast boasting the likes of Thandie Newton, James Marsden and Jeffrey Wright.'
   },
@@ -14,6 +15,7 @@ export default [
       name: 'Investopedia Terms',
       email: 'investopedia@test.com'
     },
+    time: '2020-04-09T19:55:53.922Z',
     subject: 'What is \'Fibonanci Retracement\'?',
     body: 'Fibonacci retracement is a term used in technical analysis that refers to areas of support (price stops going lower) or resistance (price stops going higher).'
   },
@@ -22,7 +24,8 @@ export default [
       name: 'ASICS Greater Manchester Marathon ',
       email: 'events@human-race.co.uk'
     },
+    time: '2020-03-09T19:55:53.922Z',
     subject: 'Your chance to take on the marathon',
     body: 'Do you feel inspired to take on one of Europe\'s most highly regarded and popular marathons?'
   }
-] as Mail[];
+] as MailResponse[];
