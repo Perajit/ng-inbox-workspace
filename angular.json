@@ -78,6 +78,14 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/app/src/app/app-providers.ts",
+                  "with": "projects/app/src/app/app-providers.local.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -114,6 +122,9 @@
             "browserTarget": "app:build"
           },
           "configurations": {
+            "local": {
+              "browserTarget": "app:build:local"
+            },
             "production": {
               "browserTarget": "app:build:production"
             }

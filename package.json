@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm run build:my-lib",
+    "start-local": "ng serve --configuration=local",
+    "build": "npm run build:my-lib && npm run build:app",
     "build:my-lib": "ng build my-lib && cpx \"./projects/my-lib/src/assets/**/*\" \"./dist/my-lib/assets\"",
+    "build:app": "ng build app",
     "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
