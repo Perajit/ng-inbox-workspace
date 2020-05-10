@@ -2,6 +2,7 @@ import { MailResponse } from 'my-lib';
 
 export default [
   {
+    id: 1,
     from: {
       name: 'Now TV',
       email: 'nowtv@test.com'
@@ -11,6 +12,7 @@ export default [
     body: 'Oscar winners Sir Anthony Hopkins and Ed Harris join an impressive cast boasting the likes of Thandie Newton, James Marsden and Jeffrey Wright.'
   },
   {
+    id: 2,
     from: {
       name: 'Investopedia Terms',
       email: 'investopedia@test.com'
@@ -20,6 +22,7 @@ export default [
     body: 'Fibonacci retracement is a term used in technical analysis that refers to areas of support (price stops going lower) or resistance (price stops going higher).'
   },
   {
+    id: 3,
     from: {
       name: 'ASICS Greater Manchester Marathon ',
       email: 'events@human-race.co.uk'
@@ -29,6 +32,7 @@ export default [
     body: 'Do you feel inspired to take on one of Europe\'s most highly regarded and popular marathons?'
   },
   {
+    id: 4,
     from: {
       name: 'ClassDojo',
       email: 'no-reply@classdojo.com'
@@ -38,6 +42,7 @@ export default [
     body: 'Mr Caines shared 4 new photo!\nView now Cheers, Sent with love.'
   },
   {
+    id: 5,
     from: {
       name: 'Twitter',
       email: 'no-reply@twitter.com'

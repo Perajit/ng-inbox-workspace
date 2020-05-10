@@ -1,4 +1,5 @@
 export interface Mail {
+  id: number;
   from: MailSender;
   time: Date;
   subject: string;
@@ -6,6 +7,7 @@ export interface Mail {
 }
 
 export interface MailResponse {
+  id: number;
   from: MailSender;
   time: string;
   subject: string;
