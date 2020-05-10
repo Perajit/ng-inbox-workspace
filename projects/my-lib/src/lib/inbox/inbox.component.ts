@@ -22,6 +22,10 @@ export class InboxComponent implements OnInit, OnDestroy {
   private mailListStatus: ResponseStatus;
   private mailListSubscription: Subscription;
 
+  private _isFilterEnabled: boolean;
+  inputFilter: string;
+  appliedFilter: string;
+
   constructor(
     private inboxService: InboxService
   ) { }
@@ -42,6 +46,19 @@ export class InboxComponent implements OnInit, OnDestroy {
     return this.mailListStatus === 'LOADING';
   }
 
+  get isFilterEnabled(): boolean {
+    return this._isFilterEnabled;
+  }
+
+  set isFilterEnabled(value: boolean) {
+    this._isFilterEnabled = value;
+
+    if (!value) {
+      this.inputFilter = null;
+      this.appliedFilter = null;
+    }
+  }
+
   ngOnInit(): void {
     this.mailListStatus = 'LOADING';
     this.mailListSubscription = this.inboxService.fetchMailList(this.apiEndpoint).subscribe(
@@ -57,6 +74,10 @@ export class InboxComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mailListSubscription.unsubscribe();
+  }
+
+  filterMailList() {
+    this.appliedFilter = this.inputFilter;
   }
 
 }

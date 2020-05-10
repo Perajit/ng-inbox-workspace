@@ -2,12 +2,26 @@
   <header class="inbox__header">
     <div class="inbox__title-bar">
       <h2>Inbox</h2>
+      <button
+        class="button button--transparent"
+        *ngIf="!isFilterEnabled"
+        (click)="isFilterEnabled=true"
+      >Filter</button>
+    </div>
+    <div class="inbox__filter-panel" *ngIf="isFilterEnabled">
+      <input
+        class="input"
+        placeholder="Filter email"
+        [(ngModel)]="inputFilter"
+        (keyup.enter)="filterMailList()"
+      >
+      <button class="button" (click)="isFilterEnabled=false"></button>
     </div>
   </header>
   <div class="inbox__list-scroller">
     <my-lib-inbox-list
       #listHolder
-      [mailList]="mailList"
+      [mailList]="mailList | mailFilter:appliedFilter"
       [placeholder]="listPlaceholder"
     ></my-lib-inbox-list>
     <my-lib-loading-indicator *ngIf="isLoading">Loading...</my-lib-loading-indicator>

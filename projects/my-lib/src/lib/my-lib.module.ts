@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
 
 import { InboxComponent } from './inbox/inbox.component';
 import { InboxListComponent } from './inbox/inbox-list/inbox-list.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import { MailFilterPipe } from './mail-filter.pipe';
 
 @NgModule({
   declarations: [
     InboxComponent,
     InboxListComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    MailFilterPipe
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    FormsModule
   ],
   exports: [InboxComponent]
 })
