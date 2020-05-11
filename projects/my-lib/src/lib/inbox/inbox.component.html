@@ -9,13 +9,14 @@
       >Filter</button>
     </div>
     <div class="inbox__filter-panel" *ngIf="isFilterEnabled">
+      <img alt="" src="../../../assets/icons/search-24px.svg">
       <input
         class="input"
-        placeholder="Filter email"
+        placeholder="Filter email..."
         [(ngModel)]="inputFilter"
         (keyup.enter)="filterMailList()"
       >
-      <button class="button" (click)="isFilterEnabled=false"></button>
+      <button class="button button--transparent" (click)="isFilterEnabled=false"></button>
     </div>
   </header>
   <div class="inbox__list-scroller">

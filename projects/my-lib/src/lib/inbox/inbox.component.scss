@@ -1,8 +1,12 @@
 @import '../../styles/colors';
 
 $title-bar-height: 3em;
-$close-filter-button-di: 36px;
-$close-filter-button-symbol-width: 18px;
+$filter-border-color: $grey-400;
+$close-filter-button-di: 28px;
+$close-filter-button-symbol-width: 14px;
+$close-filter-button-symbol-color: $grey-600;
+$close-filter-button-hover-bg-color: $grey-300;
+$close-filter-button-hover-symbol-color: $black;
 
 .inbox {
   height: 100%;
@@ -13,11 +17,11 @@ $close-filter-button-symbol-width: 18px;
 }
 
 .inbox__header {
-  padding-left: 3.5rem;
   border-bottom: solid 1px $divider-color;
 }
 
 .inbox__title-bar {
+  padding-left: 3.5rem;
   height: $title-bar-height;
   font-weight: 500;
   display: flex;
@@ -53,9 +57,15 @@ $close-filter-button-symbol-width: 18px;
 }
 
 .inbox__filter-panel {
-  padding: 1em 0;
+  margin: 1em 0;
+  padding: 0.4em;
+  border: solid 1px $filter-border-color;
   display: flex;
   align-items: center;
+
+  img {
+    opacity: 0.5;
+  }
 
   .input {
     border: none;
@@ -70,15 +80,15 @@ $close-filter-button-symbol-width: 18px;
     min-width: $close-filter-button-di;
     border-radius: $close-filter-button-di;
     border: none;
-    background: $light-grey;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       left: 50%;
       display: block;
       width: $close-filter-button-symbol-width;
       border-radius: 4px;
-      border-top: solid 4px $grey;
+      border-top: solid 4px $close-filter-button-symbol-color;
       content: '';
     }
 
@@ -97,3 +107,14 @@ $close-filter-button-symbol-width: 18px;
   overflow: auto;
   flex: 1;
 }
+
+// close filter button hover
+.inbox__filter-panel {
+  .button {
+    &:hover {
+      background-color: $close-filter-button-hover-bg-color;
+      border-top-color: $close-filter-button-hover-symbol-color;
+    }
+  }
+}
+
