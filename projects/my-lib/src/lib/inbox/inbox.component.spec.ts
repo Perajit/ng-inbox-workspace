@@ -54,4 +54,32 @@ describe('InboxComponent', () => {
   it('should load mail list', () => {
     expect(component.mailList).toEqual(mockMailList);
   });
+
+  describe('filter panel', () => {
+    it('should hide filter panel initially', () => {
+      const filterPanelEl = fixture.debugElement.query(By.css('.inbox__filter-panel'));
+      expect(filterPanelEl).toBeFalsy();
+    });
+
+    it('should show filter panel when clicking filter toggle', () => {
+      const filterToggleEl = fixture.debugElement.query(By.css('.inbox__filter-toogle'));
+      filterToggleEl.triggerEventHandler('click', { });
+      fixture.detectChanges();
+
+      const filterPanelEl = fixture.debugElement.query(By.css('.inbox__filter-panel'));
+      expect(filterPanelEl).toBeTruthy();
+    });
+  });
+
+  describe('mail list filter', () => {
+    it('should filter mail list from input term when keyup ENTER', () => {
+      component.isFilterEnabled = true;
+      fixture.detectChanges();
+
+      const termInputEl = fixture.debugElement.query(By.css('.inbox__filter-panel input'));
+      termInputEl.triggerEventHandler('keyup.enter', { });
+
+      expect(component.appliedFilter).toEqual(component.inputFilter);
+    });
+  });
 });
