@@ -6,35 +6,15 @@ This is a project for reusable email inbox component. It contains 2 sub-projects
 - __Library `my-lib`__: Library providing Inbox component with configurable endpoints.
 - __Application `app`__: Application to serve a testing page for Inbox component with configured endpoint.
 
-#### Libary: my-lib - InboxComponent
-
-##### @Input
-- `apiEndpoint` An endpoint providing mail list
-
-##### @Output
-| Output                | When                  | Event data |
-| --------------------- | --------------------- | ----------------------------------- |
-| `mailClick`           | click mail            | { mail: Mail }                      |
-| `mailSelectionChange` | change mail selection | { mail: Mail, isSelected: boolean } |
-| `mailAction`          | click action button   | { mail: Mail, action: string }      |
-
-Where `action` can be `delete`, `mail`, `flag`, `pin`.
-
-##### Dynamic date-time format
-- Format as `H:mm` when sending time is in current date.
-- Format as `MMM d` when sending time is in different date in the same year.
-- Format as `M/d/yy` when sending time is in different year.
-
-##### Mail list filter
-- Open filter panel by clicking `Filter` button
-- Start filtering by ENTER term
+### Libary: my-lib
+Refer to [MyLib](./projects/my-lib/README.md)
 
 ### Application: app
 
-##### API endpoint configuration
+#### API endpoint configuration
 - Configured base api url with `baseApiUrl` in each environment.
 
-##### Local mode with mock data
+#### Local mode with mock data
 - Use mock data in `local` configuration.
 
 
