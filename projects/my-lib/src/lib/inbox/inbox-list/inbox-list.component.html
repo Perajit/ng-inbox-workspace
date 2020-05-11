@@ -1,11 +1,36 @@
 <ul *ngIf="mailList?.length > 0; else placeholderTemplate">
-  <li *ngFor="let item of mailList; let i = index" class="list-item">
-    <div class="list-item__avatar">
-      <div>{{ item.from?.name | slice:0:1 }}</div>
+  <li
+    *ngFor="let item of mailList; let i = index"
+    class="list-item"
+    [ngClass]="{ 'hover': i == 0, 'list-item--selected': isItemSelected(item) }"
+    (click)="onItemClick(item)"
+  >
+    <div class="list-item__left-column">
+      <div class="list-item__avatar">{{ item.from?.name | slice:0:1 }}</div>
+      <div class="list-item__checkbox checkbox">
+        <input type="checkbox" [attr.id]="'chkMail' + item.id" (click)="onItemCheckboxClick($event, item)">
+        <label [attr.for]="'chkMail' + item.id"></label>
+      </div>
     </div>
     <div class="list-item__info">
-      <div class="list-item__name">{{ item.from?.name }}</div>
-      <div class="list-item__subj-n-time">
+      <div class="list-item__title-line">
+        <div class="list-item__name">{{ item.from?.name }}</div>
+        <div class="list-item__actions">
+          <button class="button button--transparent" (click)="onItemAction(item, 'delete')">
+            <img alt="" src="../../../assets/icons/delete-24px.svg">
+          </button>
+          <button class="button button--transparent" (click)="onItemAction(item, 'mail')">
+            <img alt="" src="../../../assets/icons/mail-24px.svg">
+          </button>
+          <button class="button button--transparent" (click)="onItemAction(item, 'flag')">
+            <img alt="" src="../../../assets/icons/flag-24px.svg">
+          </button>
+          <button class="button button--transparent" (click)="onItemAction(item, 'pin')">
+            <img alt="" src="../../../assets/icons/star-24px.svg">
+          </button>
+        </div>
+      </div>
+      <div class="list-item__subtitle-line">
         <div class="list-item__subj text-ellipsis">{{ item.subject }}</div>
         <div class="list-item__time">{{ item.time | dateDynamic }}</div>
       </div>

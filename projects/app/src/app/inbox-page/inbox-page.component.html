@@ -1,1 +1,12 @@
-<my-lib-inbox [apiEndpoint]="inboxApiEndpoint"></my-lib-inbox>
+<div class="container">
+  <my-lib-inbox
+    [apiEndpoint]="inboxApiEndpoint"
+    (mailClick)="onMailClick($event.mail)"
+    (mailSelectionChange)="onMailSelectionChange($event.mail, $event.isSelected)"
+    (mailAction)="onMailAction($event.mail, $event.action)"
+  ></my-lib-inbox>
+</div>
+<div class="result">
+  <div>Result:</div>
+  <div class="result__message">{{ message }}</div>
+</div>

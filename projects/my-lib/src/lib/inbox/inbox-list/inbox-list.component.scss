@@ -1,15 +1,31 @@
 @import '../../../styles/colors';
 
+@mixin show-checkbox {
+  .list-item__avatar {
+    display: none;
+  }
+
+  .list-item__checkbox {
+    height: $avatar-di;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 $column-padding-v: 0.6rem;
 $column-padding-h: 0.5rem;
 $column-padding: $column-padding-v $column-padding-h;
+$hover-bg-color: $grey-300;
 $avatar-di: 2rem;
 $avatar-colors: #2196f3, #651fff, #009688, #9c27b0, #f50057;
+$item-action-height: 16px;
 
 .list-item {
   display: flex;
   border-bottom: solid 1px $divider-color;
   line-height: 1.4em;
+  cursor: pointer;
 
   @for $i from 1 through length($avatar-colors) {
     &:nth-of-type(5n+#{$i}) {
@@ -20,8 +36,13 @@ $avatar-colors: #2196f3, #651fff, #009688, #9c27b0, #f50057;
   }
 }
 
-.list-item__avatar {
+.list-item__left-column {
   flex-shrink: 0;
+  margin: $column-padding;
+  width: $avatar-di;
+}
+
+.list-item__avatar {
   width: $avatar-di;
   height: $avatar-di;
   border-radius: 2rem;
@@ -30,7 +51,11 @@ $avatar-colors: #2196f3, #651fff, #009688, #9c27b0, #f50057;
   justify-content: center;
   align-items: center;
   color: $white;
-  margin: $column-padding;
+}
+
+.list-item__checkbox {
+  display: none;
+  position: relative;
 }
 
 .list-item__info {
@@ -43,7 +68,8 @@ $avatar-colors: #2196f3, #651fff, #009688, #9c27b0, #f50057;
   font-weight: 500;
 }
 
-.list-item__subj-n-time {
+.list-item__title-line,
+.list-item__subtitle-line {
   display: flex;
   justify-content: space-between;
 }
@@ -52,13 +78,26 @@ $avatar-colors: #2196f3, #651fff, #009688, #9c27b0, #f50057;
   font-weight: 500;
 }
 
+.list-item__actions {
+  visibility: hidden;
+  flex-shrink: 0;
+
+  .button {
+    img {
+      height: $item-action-height;
+      padding: 0 2px;
+      opacity: 0.5;
+    }
+  }
+}
+
 .list-item__time {
   flex-shrink: 0;
   padding-left: 1em;
 }
 
 .list-item__body {
-  color: $grey;
+  color: $grey-600;
 }
 
 .text-ellipsis {
@@ -70,4 +109,34 @@ $avatar-colors: #2196f3, #651fff, #009688, #9c27b0, #f50057;
 .placeholder {
   padding: 1em;
   text-align: center;
+}
+
+// item hover
+.list-item {
+  &:hover {
+    background-color: $hover-bg-color;
+    @include show-checkbox;
+
+    .list-item__actions {
+      visibility: visible;
+    }
+  }
+}
+
+// show checkbox
+.list-item {
+  &.list-item--selected {
+    @include show-checkbox;
+  }
+}
+
+// action hover
+.list-item__actions {
+  .button {
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+  }
 }

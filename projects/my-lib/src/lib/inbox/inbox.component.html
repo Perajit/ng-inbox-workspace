@@ -23,6 +23,9 @@
       #listHolder
       [mailList]="mailList | mailFilter:appliedFilter"
       [placeholder]="listPlaceholder"
+      (mailClick)="mailClick.emit($event)"
+      (mailSelectionChange)="mailSelectionChange.emit($event)"
+      (mailAction)="mailAction.emit($event)"
     ></my-lib-inbox-list>
     <my-lib-loading-indicator *ngIf="isLoading">Loading...</my-lib-loading-indicator>
   </div>

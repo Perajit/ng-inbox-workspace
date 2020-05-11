@@ -2,7 +2,7 @@
 
 $dot-di: 1em;
 $dot-space: 0.5em;
-$dot-color: $grey;
+$dot-color: $grey-600;
 
 .overlay {
   position: absolute;
@@ -38,11 +38,4 @@ $dot-color: $grey;
   0% { opacity: 1; }
   50% { opacity: 0.4; }
   100% { opacity: 1; }
-}
-
-@mixin dot($size, $color) {
-  width: $size;
-  height: $size;
-  border-radius: $size;
-  background-color: $dot-color;
 }

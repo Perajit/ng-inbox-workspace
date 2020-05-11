@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy, Input, ViewChild } from '@angular/core';
-import { Mail } from '../mail.model';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { InboxService } from '../inbox.service';
+import { Mail } from '../mail.model';
 
 @Component({
   selector: 'my-lib-inbox',
@@ -11,6 +12,9 @@ import { InboxService } from '../inbox.service';
 export class InboxComponent implements OnInit, OnDestroy {
 
   @Input() apiEndpoint: string;
+  @Output() mailClick: EventEmitter<any> = new EventEmitter();
+  @Output() mailSelectionChange: EventEmitter<any> = new EventEmitter();
+  @Output() mailAction: EventEmitter<any> = new EventEmitter();
   @ViewChild('listHolder') listHolder;
 
   readonly listPlaceholders = {

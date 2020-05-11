@@ -1,5 +1,8 @@
 @import '../styles/colors';
 @import '../styles/fonts';
+@import '../styles/button';
+@import '../styles/checkbox';
+@import '../styles/input';
 
 // CSS reset
 h1, h2, h3, h4, h5, h6,
@@ -10,21 +13,4 @@ ul, li {
 
 li {
   list-style: none;
-}
-
-.button {
-  font-family: inherit;
-  cursor: pointer;
-
-  &--transparent {
-    background: transparent;
-    border: none;
-    font-weight: 500;
-  }
-}
-
-.input {
-  height: 1.5em;
-  padding: 0.5em;
-  font-size: 1em;
 }
