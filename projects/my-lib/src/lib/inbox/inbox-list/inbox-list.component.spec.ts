@@ -3,9 +3,8 @@ import { By } from '@angular/platform-browser';
 
 import { InboxListComponent } from './inbox-list.component';
 import { MyLibModule } from '../../my-lib.module';
-import mockMailListResponse from 'projects/my-lib/mock/mock-mail-list-response';
-import { DebugElement } from '@angular/core';
 import { Mail } from '../../mail.model';
+import mockMailListResponse from 'projects/my-lib/mock/mock-mail-list-response';
 
 describe('InboxListComponent', () => {
   let component: InboxListComponent;
