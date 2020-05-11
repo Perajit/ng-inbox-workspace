@@ -1,24 +1,53 @@
 # MyLib
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+Library providing Inbox component with configurable endpoints.
 
-## Code scaffolding
+## InboxComponent
 
-Run `ng generate component component-name --project my-lib` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project my-lib`.
-> Note: Don't forget to add `--project my-lib` or else it will be added to the default project in your `angular.json` file. 
+### @Input
+- `apiEndpoint` An endpoint providing mail list
 
-## Build
+### @Output
+| Output                | When                  | Event data |
+| --------------------- | --------------------- | ----------------------------------- |
+| `mailClick`           | click mail            | { mail: Mail }                      |
+| `mailSelectionChange` | change mail selection | { mail: Mail, isSelected: boolean } |
+| `mailAction`          | click action button   | { mail: Mail, action: string }      |
 
-Run `ng build my-lib` to build the project. The build artifacts will be stored in the `dist/` directory.
+Where `action` can be `delete`, `mail`, `flag`, `pin`.
 
-## Publishing
+### Dynamic date-time format
+- Format as `H:mm` when sending time is in current date.
+- Format as `MMM d` when sending time is in different date in the same year.
+- Format as `M/d/yy` when sending time is in different year.
 
-After building your library with `ng build my-lib`, go to the dist folder `cd dist/my-lib` and run `npm publish`.
+### Mail list filter
+- Open filter panel by clicking `Filter` button
+- Start filtering by ENTER term
 
-## Running unit tests
 
-Run `ng test my-lib` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Assumption to API endpoint response
+- Mail list response is in this following format:
+`[
+  {
+    "id": 1,
+    "from": {
+      "name": "sender1 name",
+      "email": "sender1@email.com"
+    },
+    "time": "2020-02-01T05:20:20.000Z",
+    "subject": "subj 1",
+    "body": "body 1"
+  },
+  {
+    "id": 2,
+    "from": {
+      "name": "sender2 name",
+      "email": "sender2@email.com"
+    },
+    "time": "2020-01-01T05:20:20.000Z",
+    "subject": "subj 2",
+    "body": "body 2"
+  }
+]`
+- Mail list is already sorted by `time` from backend.
