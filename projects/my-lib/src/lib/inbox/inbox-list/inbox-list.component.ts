@@ -31,6 +31,8 @@ export class InboxListComponent implements OnInit {
   }
 
   onItemCheckboxClick(event: Event, mail: Mail) {
+    event.stopPropagation();
+
     const checkbox = event.srcElement as HTMLInputElement;
     const isSelected = checkbox.checked;
 
@@ -44,6 +46,8 @@ export class InboxListComponent implements OnInit {
   }
 
   onItemAction(mail: Mail, action: string) {
+    event.stopPropagation();
+
     this.mailAction.emit({ mail, action });
   }
 
